@@ -70,7 +70,7 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>Admin</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>RT</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -96,43 +96,7 @@
 		</nav>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar">
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
-						<li><a href="{{ route('index')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li>
-							<a href="#subPages" class="collapsed" data-toggle="collapse"><i class="lnr lnr-code"></i> <span>Input</span>
-								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-								<div id="subPages" class="collapse ">
-									<ul class="nav">
-										<li><a href="{{ route('form')}}" class="">Data Penduduk</a></li>
-										<li><a href="{{ route('form-pengantar')}}" class="">Permohonan Pengantar</a></li>
-										<!-- <li><a href="#" class="">Lockscreen</a></li> -->
-									</ul>
-								</div>
-							</li>
-							<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
-							<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
-							<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
-							<li>
-								<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-								<div id="subPages" class="collapse ">
-									<ul class="nav">
-										<li><a href="#" class="">Profile</a></li>
-										<li><a href="#" class="">Login</a></li>
-										<li><a href="#" class="">Lockscreen</a></li>
-									</ul>
-								</div>
-							</li>
-							<li><a href="{{ route('table')}}" class=""><i class="lnr lnr-dice"></i> <span>Data Penduduk</span></a></li>
-							<li><a href="{{ route('table-pengantar')}}" class=""><i class="lnr lnr-dice"></i> <span>Permohonan Pengantar</span></a></li>
-							<li><a href="#" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-							<li><a href="#" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
+		@include('layouts.sidebar-rt')
 			<!-- END LEFT SIDEBAR -->
 			<!-- MAIN -->
 			@yield('content')

@@ -22,8 +22,8 @@
 						</div>
 						<div class="panel-body">
 							<form action="{{ route('rakyat.list') }}" method="get">
-                                <div class="input-group mb-3 col-md-6 float-right">
-                                    <input type="text" name="q" class="form-control" placeholder="Cari..." value="{{ request()->q }}">
+                                <div class="input-group mb-3 col-md-3 float-right">
+                                    <input type="text" name="nomor_pengantar" class="form-control" placeholder="Masukkan nomor pengantar" value="{{ request()->nomor_pengantar }}">
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="submit">Cari</button>
                                     </div>
@@ -38,11 +38,11 @@
 										<th>No Pengantar</th>
 										<th>Keperluan</th>
 										<th>Lain lain</th>
-										<th>Status</th>
+										<th colspan="2">Status</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($list as $pengantar)
+									@forelse($list as $pengantar)
 									<tr>
 										<td>{{ $pengantar->id}}</td>
 										<td>{{ $pengantar->nama}}</td>
@@ -50,16 +50,20 @@
 										<td>{{ $pengantar->nomor_pengantar}}</td>
 										<td>{{ $pengantar->keperluan}}</td>
 										<td>{{ $pengantar->lain_lain}}</td>
-										<td>active</td>
+										<td>active</td> <td><a href="/penduduk/pengantar/cetak-pdf" class="btn btn-primary" target="_blank">CETAK</a></td>
 									</tr>
-									@endforeach
+									{!! $list->links() !!}
+									@empty
+                                        <tr>
+                                            <td colspan="7" class="text-center">Tidak ada data</td>
+                                        </tr>
+									@endforelse
 								</tbody>
 							</table>
 						</div>
-						<a href="/penduduk/pengantar/cetak-pdf" class="btn btn-primary" target="_blank">CETAK</a>
 					</div>
 					<!-- END BORDERED TABLE -->
-					{!! $list->links() !!}
+					
 				</div>
 
 			</div>

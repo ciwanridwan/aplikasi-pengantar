@@ -66,11 +66,9 @@
                                     <span class="helper-text"> <a href="{{ route('rakyat.register') }}">Register?</a></span>
                                 </div>
                                 <div class="bottom">
-                                    @if (Route::has('password.request'))
-                                    <span class="helper-text"> <i class="fa fa-lock"></i> <a href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <span class="helper-text"> <a href="{{ route('login-rt') }}">
+                                        Login sebagai Rt?
                                     </a> </span>
-                                    @endif
                                 </div>
                             </form>
                         </div>

@@ -56,7 +56,7 @@ class PengantarController extends Controller
         ]);
         $data = Pengantar::Create($validasi);
 
-        return redirect()->back()->with('Success, Data Permohonan Pengantar Berhasil Dibuat');
+        return redirect()->back()->with('success', 'Data Permohonan Pengantar Berhasil Dibuat');
     }
 
     /**
@@ -101,7 +101,7 @@ class PengantarController extends Controller
     ]);
      Pengantar::whereId($id)->update($validasi);
 
-     return redirect(route('table-pengantar'))->with('success', 'Data berhasil di update');
+     return redirect(route('table-pengantar'))->with('success', 'Data berhasil diperbaharui');
  }
 
     /**

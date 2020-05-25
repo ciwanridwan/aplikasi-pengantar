@@ -43,7 +43,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($penduduks as $penduduk)
+									@forelse($penduduks as $penduduk)
 									<tr>
 										<td>{{ $penduduk->id}}</td>
 										<td>{{ $penduduk->nama}}</td>
@@ -66,7 +66,11 @@
 											<button class="btn btn-danger" type="submit">Delete</button>
 										</form></td>
 									</tr>
-									@endforeach
+									@empty
+                                        <tr>
+                                            <td colspan="15" class="text-center">Tidak ada data</td>
+                                        </tr>
+									@endforelse
 								</tbody>
 							</table>
 						</div>

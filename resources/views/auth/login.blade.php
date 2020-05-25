@@ -74,14 +74,14 @@
                                 <div class="bottom">
                                     <span class="helper-text"> <a href="{{ route('register') }}">Register?</a></span>
                                 </div>
-                                <div class="bottom">
+                                <!-- <div class="bottom">
                                     @if (Route::has('password.request'))
                                     <span class="helper-text"> <i class="fa fa-lock"></i> <a href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a> </span>
                                     @endif
-                                    <!-- <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span> -->
-                                </div>
+                                    
+                                </div> -->
                             </form>
                             <br>
                             <div class="bottom">

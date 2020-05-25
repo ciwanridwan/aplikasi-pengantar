@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Penduduk;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $penduduks = Penduduk::all();
+        return view('penduduk.table', compact('penduduks'));
+    }
+
+    public function login()
+    {
+        return view('auth.login');
     }
 }

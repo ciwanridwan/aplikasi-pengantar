@@ -22,9 +22,10 @@ Route::group(['prefix' => 'penduduk'], function() {
 	Route::post('store-form', 'RakyatController@storeSurat')->name('rakyat.store-form');
 	Route::get('list', 'RakyatController@list')->name('rakyat.list');
 	Route::get('/pengantar/cetak-pdf', 'RakyatController@cetakPdf');
+	Route::get('surat', 'RakyatController@surat');
 
 	Route::group(['middleware' => 'rakyat'], function() {
-		Route::get('dashboard', 'RakyatController@dashboard')->name('rakyat.dashboard');
+		Route::get('home', 'RakyatController@list')->name('rakyat.dashboard');
 		Route::get('logout', 'RakyatController@logout')->name('rakyat.logout'); 
 	});
 });	
@@ -36,7 +37,7 @@ Route::get('/', function () {
 });
 
 Route::get('home', 'HomeController@index')->name('home');
-
+Route::get('login-rt', 'HomeController@login')->name('login-rt');
 Route::get('form', 'RtController@create')->name('form');
 Route::post('store-form', 'RtController@store')->name('store-form');
 

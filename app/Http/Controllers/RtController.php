@@ -59,7 +59,7 @@ class RtController extends Controller
         ]);
         $data = Penduduk::Create($validasi);
 
-        return redirect('penduduk.form')->with('Success, Selamat Data Berhasil Ditambah'); 
+        return redirect()->back()->with('success', 'Selamat Data Berhasil Ditambah'); 
     }
 
     /**
@@ -110,7 +110,7 @@ class RtController extends Controller
     ]);
        Penduduk::whereId($id)->update($validasi);
 
-       return redirect(route('table'))->with('success', 'Data berhasil di update');
+       return redirect(route('table'))->with('success', 'Data berhasil diubah');
 
    }
 
