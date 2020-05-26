@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\PengantarRakyat;
 use App\Rakyat;
+use App\Pengantar;
+use App\User;
+
 use PDF;
 
 
@@ -73,9 +76,9 @@ class RakyatController extends Controller
         $objWriter->save('coba.html');
 
     }
-    public function cetakPdf()
+    public function cetakPdf($id)
     {
-        $cetak = PengantarRakyat::all();
+        $cetak = Pengantar::where('id', '=', $id)->get();
         $pdf = PDF::loadview('rakyat.cetak-pdf',['cetak'=>$cetak]);
 
         return $pdf->stream();
@@ -83,7 +86,7 @@ class RakyatController extends Controller
     
     public function list()
     {
-        $list = PengantarRakyat::select('id', 'nama', 'nomor_pengantar', 'nik', 'keperluan', 'lain_lain');
+        $list = Pengantar::select('id', 'nama', 'nomor_pengantar', 'nik', 'keperluan', 'lain_lain', 'tanggal_berlaku', 'tanggal_pengantar');
         if (request()->nomor_pengantar != '') {
             $list = $list->where('nomor_pengantar', request()->nomor_pengantar);
         }
@@ -99,13 +102,15 @@ class RakyatController extends Controller
     public function storeSurat(Request $request)
     {
         $validasi = $request->validate([
-            'nik' => 'required|numeric|unique:pengantar_rakyats|digits:16',
+            'nik' => 'required|numeric|unique:pengantars|digits:16',
             'nama' => 'required|string',
-            'nomor_pengantar' => 'required|unique:pengantar_rakyats|numeric',
+            'nomor_pengantar' => 'required|unique:pengantars|numeric',
+            'tanggal_berlaku' => 'required|date',
+            'tanggal_pengantar' => 'required|date',
             'keperluan' => 'required|string',
             'lain_lain' => 'required|string',
         ]);
-        $data = PengantarRakyat::Create($validasi);
+        $data = Pengantar::Create($validasi);
 
         return redirect()->back()->with('success', 'Selamat Data Berhasil Diinput');
     }
@@ -177,7 +182,8 @@ class RakyatController extends Controller
         $rakyat = Rakyat::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make([$request->password]),
+            // 'password' => Hash::make([$request->password]),
+            'password' => $request->password,
             'remember_token' => Str::random(30),
 
         ]);

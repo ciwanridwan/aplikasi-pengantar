@@ -36,6 +36,8 @@
 										<th>Nama Lengkap</th>
 										<th>NIK</th>
 										<th>No Pengantar</th>
+										<th>Tanggal Berlaku</th>
+										<th>Tanggal Pengantar</th>
 										<th>Keperluan</th>
 										<th>Lain lain</th>
 										<th colspan="2">Status</th>
@@ -48,9 +50,15 @@
 										<td>{{ $pengantar->nama}}</td>
 										<td>{{ $pengantar->nik}}</td>
 										<td>{{ $pengantar->nomor_pengantar}}</td>
+										<td>{{ $pengantar->tanggal_berlaku}}</td>
+										<td>{{ $pengantar->tanggal_pengantar}}</td>
 										<td>{{ $pengantar->keperluan}}</td>
 										<td>{{ $pengantar->lain_lain}}</td>
-										<td>active</td> <td><a href="/penduduk/pengantar/cetak-pdf" class="btn btn-primary" target="_blank">CETAK</a></td>
+										<td>Proses</td>
+										@if ($pengantar->status === 1)
+										<td>Selesai</td>
+										@endif 
+										<td><a href="{{ route('cetak-pdf', ['id' => $pengantar->id])}}" class="btn btn-primary" target="_blank">CETAK</a></td>
 									</tr>
 									{!! $list->links() !!}
 									@empty

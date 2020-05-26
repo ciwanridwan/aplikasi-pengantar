@@ -43,6 +43,16 @@
 								<p class="text-danger">{{ $errors->first('nama') }}</p>
 								<br>
 
+								<label>Tanggal Berlaku</label>
+								<input type="date" class="form-control" id="tanggal_berlaku" name="tanggal_berlaku" value="">
+								<p class="text-danger">{{ $errors->first('tanggal_berlaku') }}</p>
+								<br>
+
+								<label>Tanggal Pengantar</label>
+								<input type="date" class="form-control" id="tanggal_pengantar" name="tanggal_pengantar" value="">
+								<p class="text-danger">{{ $errors->first('tanggal_pengantar') }}</p>
+								<br>
+								
 								<label>Keperluan</label>
 								<input type="text" class="form-control" id="keperluan" name="keperluan" value="">
 								<p class="text-danger">{{ $errors->first('keperluan') }}</p>

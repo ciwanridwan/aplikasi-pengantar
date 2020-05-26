@@ -6,7 +6,7 @@
 	<!-- MAIN CONTENT -->
 	<div class="main-content">
 		<div class="container-fluid">
-			<h3 class="page-title">Tables</h3>
+			<h3 class="page-title">Data Penduduk</h3>
 
 			<div class="row">
 				<div class="col-md-16">
@@ -18,7 +18,7 @@
 					<!-- BORDERED TABLE -->
 					<div class="panel">
 						<div class="panel-heading">
-							<h3 class="panel-title">Bordered Table</h3>
+							<h3 class="panel-title">Data Penduduk</h3>
 						</div>
 						<div class="panel-body">
 							<a href="{{ route('form')}}" class="btn btn-primary" target="_blank">Tambah Data</a>

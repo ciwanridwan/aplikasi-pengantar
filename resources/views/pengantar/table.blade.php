@@ -21,8 +21,6 @@
 							<h3 class="panel-title">Data Permohonan Pengantar Rt/RW</h3>
 						</div>
 						<div class="panel-body">
-							<a href="/pengantar/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
-							<a href="{{ route('form-pengantar')}}" class="btn btn-primary" target="_blank">Tambah Data</a>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
@@ -34,7 +32,7 @@
 										<th>Tanggal Pengantar</th>
 										<th>Keperluan</th>
 										<th>Lain lain</th>
-										<th colspan="2">Kelola Data</th>
+										<th colspan="3">Kelola Data</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -48,12 +46,15 @@
 										<td>{{ $pengantar->tanggal_pengantar}}</td>
 										<td>{{ $pengantar->keperluan}}</td>
 										<td>{{ $pengantar->lain_lain}}</td>
-										<td><a href="{{ route('edit-pengantar', $pengantar->id)}}" class="btn btn-warning">Edit</a></td>
+										<td><a href="{{ route('cetak_pdf', $pengantar->id)}}" class="btn btn-primary">Cetak</a></td>
 										<td> <form action="{{ route('delete-pengantar', $pengantar->id)}}" method="POST">
 											@csrf
 											@method('DELETE')
 											<button class="btn btn-danger" type="submit">Delete</button>
 										</form></td>
+										@if ($pengantar->status == 0)
+										<td> <a href="{{ route('acc-pengantar', $pengantar->id)}}" class="btn btn-warning">Terima</a></td>
+										@endif
 									</tr>
 									@empty
                                         <tr>

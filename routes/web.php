@@ -21,7 +21,7 @@ Route::group(['prefix' => 'penduduk'], function() {
 	Route::get('form', 'RakyatController@viewSurat')->name('rakyat.form');
 	Route::post('store-form', 'RakyatController@storeSurat')->name('rakyat.store-form');
 	Route::get('list', 'RakyatController@list')->name('rakyat.list');
-	Route::get('/pengantar/cetak-pdf', 'RakyatController@cetakPdf');
+	Route::get('/pengantar/cetak-pdf/{id}', 'RakyatController@cetakPdf')->name('cetak-pdf');
 	Route::get('surat', 'RakyatController@surat');
 
 	Route::group(['middleware' => 'rakyat'], function() {
@@ -57,4 +57,5 @@ Route::put('update/{id}', 'PengantarController@update')->name('update-pengantar'
 Route::delete('delete/pengantar/{id}', 'PengantarController@destroy')->name('delete-pengantar');
 Route::delete('delete/{id}', 'RtController@destroy')->name('delete');
 
-Route::get('/pengantar/cetak_pdf', 'PengantarController@cetak_pdf');
+Route::get('/pengantar/cetak_pdf/{id}', 'PengantarController@cetak_pdf')->name('cetak_pdf');
+Route::get('/acc/{id}', 'PengantarController@accPengantar')->name('acc-pengantar');

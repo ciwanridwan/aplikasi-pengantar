@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>PHPWord</title>
+	<title>Cetak Surat Pengantar</title>
 	<style>
 		* {font-family: Arial; font-size: 10pt;}
 		a.NoteRef {text-decoration: none;}
@@ -21,18 +21,31 @@
 	<p style="margin-top: 0; margin-bottom: 0; text-align: center;"><span class="T3">RT 04 RW 05</span></p>
 	<p style="margin-top: 0; margin-bottom: 0; text-align: center;"><span class="">Kelurahan Lenteng Agung Kecamatan Jagakarsa Kota Jakarta Selatan</span></p>
 	<hr>
-	<font face="Arial" color="black" size="6"> <p align="center"> <u> <b> SURAT KETERANGAN PENGANTAR </b></u></p> <p face="Arial" color="black" size="4" align="center"> Nomer: /2020 </p></font>
+	<font face="Arial" color="black" size="6"> <p align="center"> <u> <b> SURAT KETERANGAN PENGANTAR </b></u></p> 
+		@foreach ($cetak as $q)
+		<p face="Arial" color="black" size="4" align="center"> Nomor: {{$q->nomor_pengantar}}/2020 </p>
+		@endforeach
+	</font>
 	<p>Yang bertanda tangan dibawah ini :</p>
-	<p>Nama : <br>
-		Jabatan : <br>
-	Alamat : </p>
+
+	@foreach ($cetak as $q)
+	<p>Nama : {{$q->nama}} <br>
+		Jabatan : -<br> 
+	</p>
+	@endforeach
+
 	<p>Menerangkan dengan sesungguhnya bahwa : </p>
+	@foreach ($cetak as $p)
 	<p>
-		Nama : <br>
-		Nik : <br>
-		Nomor Pengantar <br>
-		Keperluan <br>
-	Lain lain : </p>
+		Nama : {{$p->nama}} <br>
+		Nik :  {{$p->nik}}<br>
+		Nomor Pengantar : {{$p->nomor_pengantar}} <br>
+		Tanggal Berlaku : {{$p->tanggal_berlaku}} <br>
+		Tanggal Pengantar : {{$p->tanggal_pengantar}} <br>
+		Keperluan  : {{$p->keperluan}}<br>
+		Lain lain : {{$p->lain_lain}}</p>
+	@endforeach
+
 	<p>Demikian surat keterangan ini dibuat untuk digunakan seperlunya</p>
 	<p align="right">Dibuat di : Depok</p>
 	<p align="right">Pada tanggal : </p>

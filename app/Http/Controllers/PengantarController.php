@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pengantar;
+use App\User;
 use PDF;
+use DB;
 
 class PengantarController extends Controller
 {
-   public function cetak_pdf()
-   {
-    $pengantar = Pengantar::all();
+    public function accPengantar($id)
+    {
+        $pengantar = DB::table('pengantars')
+        ->where('id', $id)
+        ->update(['status' => 1]);
+        return redirect(route('table-pengantar', $pengantar));
+    }
+    public function cetak_pdf($id)
+    {
+        $cetak = Pengantar::where('id', '=', $id)->get();
+        // dd($rt);
+        $pdf = PDF::loadview('pengantar.cetak_pdf',['cetak'=>$cetak]);
 
-    $pdf = PDF::loadview('pengantar.cetak_pdf',['pengantar'=>$pengantar]);
-    // return $pdf->download('laporan-pengantar-pdf.pdf');
-    return $pdf->stream();
+        return $pdf->stream();
     }
     /**
      * Display a listing of the resource.
@@ -90,7 +99,7 @@ class PengantarController extends Controller
      */
     public function update(Request $request, $id)
     {
-     $validasi = $request->validate([
+       $validasi = $request->validate([
         'nik' => 'required|numeric|digits:16',
         'nomor_pengantar' => 'required|string',
         'nama' => 'required|string',
@@ -99,10 +108,10 @@ class PengantarController extends Controller
         'keperluan' => 'required|string',
         'lain_lain' => 'required|string'
     ]);
-     Pengantar::whereId($id)->update($validasi);
+       Pengantar::whereId($id)->update($validasi);
 
-     return redirect(route('table-pengantar'))->with('success', 'Data berhasil diperbaharui');
- }
+       return redirect(route('table-pengantar'))->with('success', 'Data berhasil diperbaharui');
+   }
 
     /**
      * Remove the specified resource from storage.
