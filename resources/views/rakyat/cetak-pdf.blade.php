@@ -48,7 +48,9 @@
 
 	<p>Demikian surat keterangan ini dibuat untuk digunakan seperlunya</p>
 	<p align="right">Dibuat di : Depok</p>
-	<p align="right">Pada tanggal : </p>
+	@foreach ($cetak as $p)
+	<p align="right">Pada tanggal : {{$p->tanggal_berlaku}} </p>
+	@endforeach
 	<div align="center">
 		<span style="font-size: x-small;">Mengetahui</span></div>
 		<div align="left">
@@ -57,5 +59,7 @@
 				<span style="font-size: x-small;">Ketua RT</span></div>
 			</div>
 
+<div align="left">
+			<span style="font-size: x-small;">Tanda Tangan Pemegang</span></div>
 		</body>
 		</html>

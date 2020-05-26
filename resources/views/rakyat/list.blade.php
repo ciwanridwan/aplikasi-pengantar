@@ -54,8 +54,9 @@
 										<td>{{ $pengantar->tanggal_pengantar}}</td>
 										<td>{{ $pengantar->keperluan}}</td>
 										<td>{{ $pengantar->lain_lain}}</td>
+										@if ($pengantar->status == 0)
 										<td>Proses</td>
-										@if ($pengantar->status === 1)
+										@else
 										<td>Selesai</td>
 										@endif 
 										<td><a href="{{ route('cetak-pdf', ['id' => $pengantar->id])}}" class="btn btn-primary" target="_blank">CETAK</a></td>
@@ -63,7 +64,7 @@
 									{!! $list->links() !!}
 									@empty
                                         <tr>
-                                            <td colspan="7" class="text-center">Tidak ada data</td>
+                                            <td colspan="9" class="text-center">Tidak ada data</td>
                                         </tr>
 									@endforelse
 								</tbody>

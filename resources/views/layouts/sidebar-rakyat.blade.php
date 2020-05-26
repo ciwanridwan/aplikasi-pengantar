@@ -3,7 +3,6 @@
 	<div class="sidebar-scroll">
 		<nav>
 			<ul class="nav">
-				<li><a href="{{ route('index')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 				<li><a href="{{ route('rakyat.form')}}" class=""><i class="lnr lnr-file-empty"></i> <span>Buat Surat</span></a></li>
 				<li><a href="{{ route('rakyat.list')}}" class=""><i class="lnr lnr-alarm"></i> <span>Status</span></a></li>
 			</ul>

@@ -58,6 +58,15 @@
 				<div align="right">
 					<span style="font-size: x-small;">Ketua RT</span></div>
 				</div>
+				<div align="center">
+					<span style="font-size: x-small;"></span></div>
+					<div align="center">
+					<span style="font-size: x-small;"></span></div>
+					<div align="center">
+					<span style="font-size: x-small;"></span></div>
+					<div align="left">
+					<span style="font-size: x-small;">kocak</span></div>
 
-			</body>
-			</html>
+
+				</body>
+				</html>

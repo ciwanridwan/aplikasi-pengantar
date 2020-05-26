@@ -14,7 +14,7 @@ class AddFieldStatusToPengantarsTable extends Migration
     public function up()
     {
         Schema::table('pengantars', function (Blueprint $table) {
-            $table->char('status', 1)->default(0)->comment('0: process, 1: done')->after('lain_lain');
+            $table->boolean('status')->default(0)->after('lain_lain');
         });
     }
 
