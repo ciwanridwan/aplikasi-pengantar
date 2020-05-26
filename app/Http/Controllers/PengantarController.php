@@ -15,7 +15,6 @@ class PengantarController extends Controller
         $pengantar = DB::table('pengantars')
         ->where('id', $id)
         ->update(['status' => 1]);
-        echo $pengantar->status;
         return redirect(route('table-pengantar', $pengantar));
     }
     public function cetak_pdf($id)

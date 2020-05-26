@@ -86,7 +86,7 @@ class RakyatController extends Controller
     
     public function list()
     {
-        $list = Pengantar::select('id', 'nama', 'nomor_pengantar', 'nik', 'keperluan', 'lain_lain', 'tanggal_berlaku', 'tanggal_pengantar');
+        $list = Pengantar::select('id', 'nama', 'nomor_pengantar', 'nik', 'keperluan', 'lain_lain', 'tanggal_berlaku', 'tanggal_pengantar', 'status');
         if (request()->nomor_pengantar != '') {
             $list = $list->where('nomor_pengantar', request()->nomor_pengantar);
         }
