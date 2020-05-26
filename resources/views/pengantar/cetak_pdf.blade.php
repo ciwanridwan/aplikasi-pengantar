@@ -61,12 +61,17 @@
 				<div align="center">
 					<span style="font-size: x-small;"></span></div>
 					<div align="center">
-					<span style="font-size: x-small;"></span></div>
-					<div align="center">
-					<span style="font-size: x-small;"></span></div>
-					<div align="left">
-					<span style="font-size: x-small;">kocak</span></div>
+						<span style="font-size: x-small;"></span></div>
+						<div align="center">
+							<span style="font-size: x-small;"></span></div>
 
+							@foreach($cetak as $p)
+							<div align="left">
+								<span style="font-size: x-small;"> {{$p->nama}} </span></div>
+								@endforeach
 
-				</body>
-				</html>
+								<div align="right">
+									<span style="font-size: x-small;">(Nama RT)</span></div>					
+
+								</body>
+								</html>

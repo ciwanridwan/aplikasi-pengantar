@@ -44,22 +44,26 @@
 		Tanggal Pengantar : {{$p->tanggal_pengantar}} <br>
 		Keperluan  : {{$p->keperluan}}<br>
 		Lain lain : {{$p->lain_lain}}</p>
-	@endforeach
+		@endforeach
 
-	<p>Demikian surat keterangan ini dibuat untuk digunakan seperlunya</p>
-	<p align="right">Dibuat di : Depok</p>
-	@foreach ($cetak as $p)
-	<p align="right">Pada tanggal : {{$p->tanggal_berlaku}} </p>
-	@endforeach
-	<div align="center">
-		<span style="font-size: x-small;">Mengetahui</span></div>
-		<div align="left">
-			<span style="font-size: x-small;">Tanda Tangan Pemegang</span></div>
-			<div align="right">
-				<span style="font-size: x-small;">Ketua RT</span></div>
-			</div>
+		<p>Demikian surat keterangan ini dibuat untuk digunakan seperlunya</p>
+		<p align="right">Dibuat di : Depok</p>
+		@foreach ($cetak as $p)
+		<p align="right">Pada tanggal : {{$p->tanggal_berlaku}} </p>
+		@endforeach
+		<div align="center">
+			<span style="font-size: x-small;">Mengetahui</span></div>
+			<div align="left">
+				<span style="font-size: x-small;">Tanda Tangan Pemegang</span></div>
+				<div align="right">
+					<span style="font-size: x-small;">Ketua RT</span></div>
 
-<div align="left">
-			<span style="font-size: x-small;">Tanda Tangan Pemegang</span></div>
-		</body>
-		</html>
+				@foreach ($cetak as $p)
+				<div align="left">
+					<span style="font-size: x-small;">{{$p->nama}}</span></div>
+					@endforeach
+					<div align="right">
+					<span style="font-size: x-small;">(Nama RT)</span></div>
+
+				</body>
+				</html>

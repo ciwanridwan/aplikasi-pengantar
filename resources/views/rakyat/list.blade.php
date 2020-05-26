@@ -55,9 +55,9 @@
 										<td>{{ $pengantar->keperluan}}</td>
 										<td>{{ $pengantar->lain_lain}}</td>
 										@if ($pengantar->status == 0)
-										<td>Proses</td>
+											<td>Proses</td>
 										@else
-										<td>Selesai</td>
+											<td>Selesai</td>
 										@endif 
 										<td><a href="{{ route('cetak-pdf', ['id' => $pengantar->id])}}" class="btn btn-primary" target="_blank">CETAK</a></td>
 									</tr>
